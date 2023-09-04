@@ -1,4 +1,4 @@
-// package src.project;
+package Project.src.project;
 
 public class Test {
 	public static void main(String[] args) {
