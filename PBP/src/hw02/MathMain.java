@@ -1,3 +1,4 @@
+package hw02;
 
 public class MathMain {
 	public static void main(String[] args) {
@@ -13,11 +14,13 @@ public class MathMain {
 		printProductBetween(begin, end, product);
 	}
 	private static long getSumBetween(final int begin, final int end) {
-		long result = 0;
+		long sum = 0L;
+		
 		for (int i=begin; i<=end; i++) {
-			result += i;
+			sum += i;
 		}
-		return result;
+		
+		return sum;
 	}
 	private static void printSumBetween(final int begin, final int end, final long sum) {
 		String line = String.valueOf(begin);
