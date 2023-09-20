@@ -1,18 +1,13 @@
-package hw03;
+// package hw03;
 import java.util.Scanner;
 
 enum Command {
 	// Your code here
 //	String command = "";
 	ADD("ADD"), LIST("LIST"), SUM("SUM"), QUIT("QUIT"), INVALID("INVALID");
-	private final String cmd;
+	private final String command;
 	private Command(final String command) {
-		if (command != "ADD" && command != "LIST" && command != "SUM" && command != "QUIT") {
-			System.out.println("It is not in enum");
-			this.cmd = "INVALID";
-		} else {
-			this.cmd = command;
-		}
+		this.command = command;
 	}
 }
 public class ArrayEnum {
@@ -21,8 +16,6 @@ public class ArrayEnum {
 		int[] values = new int[100];
 		int index = 0;
 		final Scanner scanner = new Scanner(System.in);
-//		String str = scanner.nextLine();
-//		System.out.println(str);
 		while ( true ) {
 			final Command command = getCommand(scanner); // Command is enum
 			if ( command == Command.QUIT ) {
@@ -50,7 +43,13 @@ public class ArrayEnum {
 	}
 	private static Command getCommand(Scanner scanner) {
 		String str = scanner.next();
-		Command command = Command.valueOf(str.toUpperCase());
+		str = str.toUpperCase();
+	
+		if (!str.equals("ADD") && !str.equals("LIST") && !str.equals("SUM") && !str.equals("QUIT")) {
+			str = "INVALID";
+		}
+
+		Command command = Command.valueOf(str);
 		return command;
 	}
 	private static int getValue(Scanner scanner) {
@@ -72,8 +71,4 @@ public class ArrayEnum {
 		return sum;
 	}
 	// Your code here
-//	private static Command Command(String upperCase) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 }
