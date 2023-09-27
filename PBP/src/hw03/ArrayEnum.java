@@ -48,6 +48,7 @@ public class ArrayEnum {
             cmd = "INVALID";
         }
         final Command command = Command.valueOf(cmd);
+        
         return command;
     }
     private static final int getValue(final Scanner scanner) {
