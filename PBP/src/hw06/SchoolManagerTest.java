@@ -42,17 +42,13 @@ public class SchoolManagerTest {
 	}
     private static OperationKind getOperation() {
         System.out.printf("Enter Operation String! ");
-        String op = scanner.next().toString().toUpperCase();
+        final String op = scanner.next().toString().toUpperCase();
         OperationKind operation;
         try {
             operation = OperationKind.valueOf(op);
         } catch (IllegalArgumentException e) {
             operation = OperationKind.valueOf("INVALID");
         }
-        // if (!op.equals("QUIT") && !op.equals("ADD") && !op.equals("FIND") && !op.equals("CLEAR") && !op.equals("LIST")) {
-		// 	op = "INVALID";
-		// }
-        // operation = OperationKind.valueOf(op);
         return operation;
     }
     private static Student createStudent() {

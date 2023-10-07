@@ -17,15 +17,18 @@ public class Student {
     }
     public String toString() {
         String information = "";
-        //[Name: James, School:PNU, 1학년]
         information += "[Name: " + this.name + ", School:" + this.theSchool.getName() + ", " + this.year + "학년]"; 
         return information;
     }
-    public boolean equals(Student other) {
+    public boolean equals(final Student other) {
         return name.equals(other.name) && year == other.year;
     }
     public int hashCode() {
         int hashCode = 0;
+        for (int i=0; i<name.length(); i++) {
+            hashCode += 44 * name.charAt(i);
+        }
+        hashCode += 4 * year;
         return hashCode;
     }
 }

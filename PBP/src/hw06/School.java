@@ -7,7 +7,7 @@ public class School {
 
 	public School(final String name) { this.name = name ; }
 	
-    public void addStudent(Student student) {
+    public void addStudent(final Student student) {
         students.add(student);
     }
     public boolean equals(School other) {
@@ -15,13 +15,19 @@ public class School {
     } 
     public int hashCode() {
         int hashCode = 0;
+        for (Student s : students) {
+            hashCode += s.hashCode();
+        }
+        for (int i=0; i<name.length(); i++) {
+            hashCode += 44 * name.charAt(i);
+        }
         return hashCode;
     }
     public String getName() {
         return this.name;
     } 
-    public Student findStudent(String name, int year) {
-        Student findStudent = new Student(name, year);
+    public Student findStudent(final String name, final int year) {
+        final Student findStudent = new Student(name, year);
         for (Student student : students) {
             if (student.equals(findStudent)) {
                 return student;
