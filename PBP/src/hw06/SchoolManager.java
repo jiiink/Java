@@ -1,10 +1,11 @@
 package hw06;
 import java.util.*;
 
-public class SchoolManager {
+public class SchoolManager extends Object {
     private List<School> schools = new ArrayList<>() ;
     
     public School findSchool(final String schoolName) {
+    	assert schoolName != null;
         for (School school : schools) {
             if (school.getName().equals(schoolName)) {
                 return school;
@@ -14,6 +15,7 @@ public class SchoolManager {
     }
     public School createSchool(final String schoolName) {
         final School school = new School(schoolName);
+        assert school != null;
         schools.add(school);
         return school;
     }
@@ -30,6 +32,8 @@ public class SchoolManager {
     public void removeAllSchools() {
         schools.clear();
     }
+    
+    @Override
     public String toString() {
         String total_line = "";
         final String school_count = String.valueOf(schools.size());

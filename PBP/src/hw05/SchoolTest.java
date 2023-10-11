@@ -1,13 +1,14 @@
 package hw05;
 import java.util.Scanner;
 
-enum OperationKind {
-	QUIT("QUIT"), INVALID("INVALID"), ADD("ADD"), FIND("FIND"), CLEAR("CLEAR"), LIST("LIST");
-	private String op;
-	OperationKind(String op) {
-		this.op = op;
-	}
-}
+//enum OperationKind {
+//	QUIT("QUIT"), INVALID("INVALID"), ADD("ADD"), FIND("FIND"), CLEAR("CLEAR"), LIST("LIST");
+//	private String op;
+//	OperationKind(String op) {
+//		this.op = op;
+//	}
+//}
+enum OperationKind {QUIT, INVALID, ADD, FIND, CLEAR, LIST};
 
 public class SchoolTest {
 	private static Scanner scanner = new Scanner(System.in);
