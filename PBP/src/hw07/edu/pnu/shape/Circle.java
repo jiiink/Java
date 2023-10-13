@@ -12,11 +12,7 @@ public class Circle {
 
     @Override
     public String toString() {
-        // [ Circle [20, 10] 10 314.000000]
-
-        String msg = "";
-        msg += "[ Circle " + center.toString() + radius + " " + area + "]";
-        // center.toString()
+        final String msg = "[ Circle " + center.toString() + radius + " " + String.format("%.6f", area) + "]";
         return msg;
     }
 }

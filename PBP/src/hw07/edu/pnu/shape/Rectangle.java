@@ -11,9 +11,7 @@ public class Rectangle {
 
     @Override
     public String toString() {
-        // [ Rectangle 10 10 100.000000]
-        String msg = "";
-        msg = "[ Rectangle " + width + " " + height + " " + area + "]";
+        final String msg = "[ Rectangle " + width + " " + height + " " + String.format("%.6f", area) + "]";
         return msg; 
     }
 }
