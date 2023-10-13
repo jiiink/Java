@@ -12,5 +12,11 @@ public class Point {
     public int getY() {
         return this.y;
     }
+
+    @Override
+    public String toString() {
+        String msg = "[" + x + ", " + y + "] ";
+        return msg;
+    }
 }
 

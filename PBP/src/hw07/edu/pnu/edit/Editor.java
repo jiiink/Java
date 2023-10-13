@@ -10,13 +10,17 @@ public class Editor {
     }
 
     public void list() {
+        List<String> msgList = new ArrayList<>();
         String msg = "";
         String objects = "";
         for (Object object : shapes) {
-            objects += object.toString() + " ";
+            // objects += object.toString();
+            msgList.add(object.toString());
         }
+        // msgArray.append()
         msg += "[" + objects + "]";
-        System.out.println(msg);
+        // System.out.println(msg);
+        System.out.println(msgList);
     }
 
     public void clear() {
