@@ -1,11 +1,11 @@
 package hw08;
 // import java.util.*;
-import java.lang.Math;
+// import java.lang.Math;
 
 public abstract class Shape {
     private int width;
     private int height;
-    private double area;
+    protected double area;
 
     public Shape() {
         width = 0;
@@ -14,8 +14,10 @@ public abstract class Shape {
     public Shape(int w, int h) {
         this.width = w;
         this.height = h;
-        setArea();
+        // setArea();
         // this.area = w * h;
     }
-    public abstract void setArea();
+    @Override
+    public abstract String toString();
+    // public abstract void setArea();
 }
