@@ -18,6 +18,10 @@ public abstract class Shape {
         // this.area = w * h;
     }
     @Override
-    public abstract String toString();
+    public String toString() {
+        String msg = "";
+        msg += width + " " + height;
+        return msg;
+    }
     // public abstract void setArea();
 }
