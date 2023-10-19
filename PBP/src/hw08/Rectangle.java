@@ -1,16 +1,14 @@
 package hw08;
-// import hw08.Shape;
 
 public class Rectangle extends Shape {
-    // private float area;
-    public Rectangle(int w, int h) {
+    public Rectangle(final int w, final int h) {
         super(w, h);
-        area = w * h;
-        // setArea(w, h);
+        this.setArea(w * h);
     }
-    // @Override
-    // public void setArea() {
-    //     // this.area = w * h;
-    //     // area = width * height;
-    // }
+    @Override
+    public String toString() {
+        String msg = "";
+        msg += "Rectangle " + super.toString();
+        return msg;
+    }
 }

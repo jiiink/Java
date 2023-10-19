@@ -1,17 +1,22 @@
 package hw08;
-// import java.util.*;
 import java.lang.Math;
 
 public class Circle extends Shape {
     private int x;
     private int y;
     private int radius;
-    // private double area;
     
-    public Circle(int x, int y, int r) {
+    public Circle(final int x, final int y, final int r) {
         this.x = x;
         this.y = y;
         this.radius = r;
-        area = Math.PI * r * r;
+        final float area = (float)Math.PI * r * r;
+        setArea(area);
+    }
+    @Override
+    public String toString() {
+        String msg = "";
+        msg += "Circle " + this.x + " " + this.y + " " + this.getArea() + "\n";
+        return msg;
     }
 }

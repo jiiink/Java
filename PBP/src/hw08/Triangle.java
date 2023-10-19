@@ -1,9 +1,15 @@
 package hw08;
 
 public class Triangle extends Shape {
-    // private double area;
-    public Triangle(int w, int h) {
+    public Triangle(final int w, final int h) {
         super(w, h);
-        area = w * h * 0.5;
+        final float area = w * h / 2;
+        setArea(area);
+    }
+    @Override
+    public String toString() {
+        String msg = "";
+        msg += "Triangle " + super.toString();
+        return msg;
     }
 }

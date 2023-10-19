@@ -1,27 +1,28 @@
 package hw08;
-// import java.util.*;
-// import java.lang.Math;
 
 public abstract class Shape {
     private int width;
     private int height;
-    protected double area;
+    private float area;
 
     public Shape() {
-        width = 0;
-        height = 0;
+        this.width = 0;
+        this.height = 0;
     }
-    public Shape(int w, int h) {
+    public Shape(final int w, final int h) {
         this.width = w;
         this.height = h;
-        // setArea();
-        // this.area = w * h;
     }
     @Override
     public String toString() {
         String msg = "";
-        msg += width + " " + height;
+        msg += width + " " + height + " " + area + "\n";
         return msg;
     }
-    // public abstract void setArea();
+    public void setArea(float area) {
+        this.area = area;
+    }
+    public float getArea() {
+        return this.area;
+    }
 }
