@@ -22,7 +22,9 @@ public class FactorialMain {
 		} else {
 			String str = "1";
 			for (int j=2; j<=i; j++) {
-				String num = Integer.toString(j);
+				// String num = Integer.toString(j);
+				String num = String.valueOf(j);
+				// int str_to_num = Integer.valueOf(num);
 				str += "*";
 				str += num;
 			}
