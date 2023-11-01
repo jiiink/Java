@@ -1,4 +1,4 @@
-package prob1;
+package MID.prob1;
 
 import java.util.ArrayList;
 import java.util.List;
