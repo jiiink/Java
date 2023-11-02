@@ -1,3 +1,5 @@
+package Basic.stdio;
+
 public class FormatTest {
     public static void main(String[] args) {
         long n = 123456;

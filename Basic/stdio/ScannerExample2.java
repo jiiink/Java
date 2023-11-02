@@ -1,3 +1,5 @@
+package Basic.stdio;
+
 import java.util.Scanner;
 
 public class ScannerExample2 {

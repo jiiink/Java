@@ -1,4 +1,4 @@
-package Conversion;
+package Basic.Conversion;
 public class Conversion2Wrapper {
     public static void main(String[] args) {
         //Using constructor

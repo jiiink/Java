@@ -1,4 +1,4 @@
-package PBP.src.hw07.edu.pnu.edit;
+package hw07.edu.pnu.edit;
 import java.util.Scanner;
 
 import hw07.edu.pnu.shape.Circle;

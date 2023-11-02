@@ -1,4 +1,4 @@
-package prob2;
+package MID.prob2;
 
 public abstract class Vehicle {
     private final String maker;
