@@ -15,11 +15,12 @@ public class Line implements MyComparable {
     }
     @Override
     public int compareTo(final MyComparable other) {
-        if (getSize() > other.getSize()) { // ascending
-            return 1;
-        } else {  // descending
-            return 0;
-        }
+        // if (getSize() > other.getSize()) { // ascending
+        //     return 1;
+        // } else {  // descending
+        //     return 0;
+        // }
+        return (int)(other.getSize() - getSize());
     }
 
     @Override
