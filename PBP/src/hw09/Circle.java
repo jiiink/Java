@@ -17,22 +17,18 @@ public class Circle implements MyComparable {
 
     @Override
     public int compareTo(MyComparable other) {
-        // TODO Auto-generated method stub
-        Circle otherCircle = (Circle)other;
-        if (center == otherCircle.center && radius == otherCircle.radius) {
-            return 1; // same
-        } else {
-            return 0; // different
-        }
-        // throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+        // if (getSize() > other.getSize()) { // ascending
+        //     return 1; 
+        // } else { // descending
+        //     return 0; 
+        // }
+        return (int)(other.getSize() - getSize());
     }
     @Override
     public long getSize() {
-        // TODO Auto-generated method stub
-        long result;
-        result = (long)(Math.PI * Math.pow(radius, 2));
+        long result = 0;
+        result = Math.round(Math.PI * Math.pow(radius, 2));
         return result;
-        // throw new UnsupportedOperationException("Unimplemented method 'getSize'");
     }
 }
 

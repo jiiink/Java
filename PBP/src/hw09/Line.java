@@ -10,17 +10,17 @@ public class Line implements MyComparable {
     @Override
     public long getSize() {
         long result = 0;
-        result = (long)Math.sqrt(Math.pow((point1.getX() - point2.getX()), 2) + Math.pow((point1.getY() - point2.getY()), 2));
+        result = Math.round(Math.sqrt(Math.pow((point1.getX() - point2.getX()), 2) + Math.pow((point1.getY() - point2.getY()), 2)));
         return result;
     }
     @Override
     public int compareTo(final MyComparable other) {
-        Line otherLine = (Line)other;
-        if (point1 == otherLine.point1 && point2 == otherLine.point2) {
-            return 1; // same
-        } else {
-            return 0; // different
-        }
+        // if (getSize() > other.getSize()) { // ascending
+        //     return 1;
+        // } else {  // descending
+        //     return 0;
+        // }
+        return (int)(other.getSize() - getSize());
     }
 
     @Override

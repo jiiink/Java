@@ -1,11 +1,9 @@
 package hw09;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 enum OperationKind {QUIT, INVALID, ADDL, ADDC, SORTA, SORTD, CLEAR, LIST}
-
+enum SortKind {ASCENDING, DESCENDING}
 
 public class SortInterfaceTest {
     private static Scanner scanner = new Scanner(System.in);
@@ -36,10 +34,10 @@ public class SortInterfaceTest {
                     break ;
                 }
                 case SORTA:
-                    // sortList(comparableList, SortKind.ASCENDING) ;
+                    sortList(comparableList, SortKind.ASCENDING) ;
                     break ;
                 case SORTD:
-                    // sortList(comparableList, SortKind.DESCENDING) ;
+                    sortList(comparableList, SortKind.DESCENDING) ;
                     break ;
                 case CLEAR:
                     comparableList.clear() ;
@@ -52,31 +50,56 @@ public class SortInterfaceTest {
             }
         }
 
-    private static Circle createCircle(Scanner scanner) {
-        int x = scanner.nextInt();
-        int y = scanner.nextInt();
-        int r = scanner.nextInt();
-        Point p = new Point(x, y);
+    private static void sortList(List<MyComparable> list, final SortKind kind) {
+        if (kind == SortKind.ASCENDING) {
+            for (int i=0; i<list.size()-1; i++) {
+                for (int j=i+1; j<list.size(); j++) {
+                    if (list.get(i).compareTo(list.get(j)) == 1) {
+                        Collections.swap(list, i, j);
+                    }
+                }
+            }
+            // Collections.sort(list, Collections.reverseOrder());
+        } else {
+            for (int i=0; i<list.size()-1; i++) {
+                for (int j=i+1; j<list.size(); j++) {
+                    if (list.get(i).compareTo(list.get(j)) == 0) {
+                        Collections.swap(list, i, j);
+                    }
+                }
+            }
+            // Collections.sort(list);
+        }
+        
+    }
 
-        Circle newCircle = new Circle(p, r);
+    private static Circle createCircle(final Scanner scanner) {
+        final Point p = createPoint(scanner);
+        final int r = scanner.nextInt();
+
+        final Circle newCircle = new Circle(p, r);
         return newCircle;
     }
 
-    private static Line createLine(Scanner scanner) {
-        int x = scanner.nextInt();
-        int y = scanner.nextInt();
-        Point p1 = new Point(x, y);
-        x = scanner.nextInt();
-        y = scanner.nextInt();
-        Point p2 = new Point(x, y);
+    private static Line createLine(final Scanner scanner) {
+        final Point p1 = createPoint(scanner);
+        final Point p2 = createPoint(scanner);
         
         final Line newLine = new Line(p1, p2);
         return newLine;
     }
+    
+    private static Point createPoint(final Scanner scanner) {
+        final int x = scanner.nextInt();
+        final int y = scanner.nextInt();
+        final Point p = new Point(x, y);
 
-    private static OperationKind getOperation(Scanner scanner) {
+        return p;
+    }
+
+    private static OperationKind getOperation(final Scanner scanner) {
         System.out.print("Enter Operation String! ");
-        String operation = scanner.next().toUpperCase();
+        final String operation = scanner.next().toUpperCase();
         OperationKind op;
         try {
             op = OperationKind.valueOf(operation);

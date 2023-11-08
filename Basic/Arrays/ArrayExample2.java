@@ -1,3 +1,5 @@
+package Basic.Arrays;
+
 import java.util.Random;
 
 public class ArrayExample2 {

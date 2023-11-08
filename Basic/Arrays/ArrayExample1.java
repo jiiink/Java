@@ -1,3 +1,5 @@
+package Basic.Arrays;
+
 public class ArrayExample1 {
     public static void main(String[] args) {
         int[] ia = {0, 1, 2, 3}; // int[] intArray = new int[10]

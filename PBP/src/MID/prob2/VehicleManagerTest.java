@@ -1,4 +1,4 @@
-package prob2;
+package MID.prob2;
 
 public class VehicleManagerTest {
     public static void main(String[] args) {
