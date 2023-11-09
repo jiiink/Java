@@ -7,4 +7,9 @@ public class InvalidRectangleException extends Exception {
 	}
 	public int getWidth() { return width; }
 	public int getHeight() { return height; }
+	@Override
+	public String toString() {
+		final String msg = "사각형의 넓이와 높이는 양수이어야 합니다. " + getWidth() + " " + getHeight();
+		return msg;
+	}
 }

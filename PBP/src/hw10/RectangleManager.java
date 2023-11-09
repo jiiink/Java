@@ -24,40 +24,40 @@ public class RectangleManager {
 	}
 
 	private void showAll() {
-		for (Rectangle rect : rectangles) {
-			System.out.println(rect);
+		for (final Rectangle rectangle : rectangles) {
+			System.out.println(rectangle);
 		}
 	}
 
 	private void zoom() {
-		int id = scannerObject.nextInt();
-		int ratio = scannerObject.nextInt();
 		try {
+			final int id = scannerObject.nextInt();
+			final int ratio = scannerObject.nextInt();
 			System.out.println("Before: " + rectangles.get(id));
 			rectangles.get(id).setWidth(rectangles.get(id).getWidth() * ratio);
 			rectangles.get(id).setHeight(rectangles.get(id).getHeight() * ratio);
 			System.out.println("After: " + rectangles.get(id));
 		} catch (IndexOutOfBoundsException e) {
-			System.out.println("non exist index. " + e);
+			System.out.println("존재하지 않는 배열의 원소를 접근했습니다." + e);
 		}
-		
 	}
 
 	private void create() {
-		int width = scannerObject.nextInt();
-		int height = scannerObject.nextInt();
 		try {
-			if (!(width > 0 && height > 0)) {
+			final int width = scannerObject.nextInt();
+			final int height = scannerObject.nextInt();
+			if (width < 0 || height < 0) {
 				throw new InvalidRectangleException(width, height);
 			}
+			final Rectangle rectangle = new Rectangle(width, height);
+			rectangles.add(rectangle);
+			System.out.println(rectangle + " is added at " + (rectangles.size()-1));
+			
 		} catch (InvalidRectangleException e) {
-			System.out.println("width and height must be positive " + width + " " + height);
-			return;
+			System.out.println(e);
+		} catch (InputMismatchException e) {
+			System.out.println("입력된 인자의 형식이 맞지 않습니다.");
 		}
-
-		Rectangle rectangle = new Rectangle(width, height);
-		rectangles.add(rectangle);
-		System.out.println(rectangle + " is added at " + (rectangles.size()-1));
 	}
 }
 
