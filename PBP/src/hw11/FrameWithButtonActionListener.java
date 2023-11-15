@@ -26,8 +26,7 @@ class FrameWithButtonActionListener extends JFrame implements ActionListener {
 		JButton button5 = new JButton("Quit");
 		button5.addActionListener((event) -> System.exit(0));
 		panel.add(button5);
-	
-}
+	}
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		System.out.println(event) ;

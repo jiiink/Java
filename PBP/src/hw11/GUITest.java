@@ -1,5 +1,4 @@
 package hw11;
-import javax.swing.*;
 
 public class GUITest {
 	public static void main(String[] args) {

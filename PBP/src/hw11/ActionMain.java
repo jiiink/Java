@@ -26,45 +26,56 @@ class ActionFrame extends JFrame {
 
 
 
-class ActionPanel extends JPanel {
+class ActionPanel extends JPanel implements ActionListener{
 	class MyButtonAction extends AbstractAction {
-		//AbstractAction implements all methods of interface Action except for actionPerformed
 		public MyButtonAction(String name) { 
 			putValue(Action.NAME, name); // displayed on buttons and menu items
-//			putValue(Action.SMALL_ICON, icon);
 			putValue(Action.SHORT_DESCRIPTION, // for display in a tooltip
 					"Help for button " + name.toLowerCase());
-//			putValue("color", c);
 		}
+		
 		@Override
 		public void actionPerformed(ActionEvent event) { 
 			setBackground((Color) getValue("color"));
 		}
 	} 
+	
 	public ActionPanel() { 
-		Action yellowAction = // name, icon, color
-				new ColorAction("Yellow", new ImageIcon("yellow-ball.gif"), Color.YELLOW);
-		Action blueAction =
-				new ColorAction("Blue", new ImageIcon("blue-ball.gif"), Color.BLUE);
-		Action redAction =
-				new ColorAction("Red", new ImageIcon("red-ball.gif"), Color.RED);
+		Action AddAction = 
+				new MyButtonAction("Add");
+		Action RemoveFirstAction = 
+				new MyButtonAction("Remove First");
+		Action RemoveLastAction = 
+				new MyButtonAction("Remove Last");
+		Action RemoveAllAction = 
+				new MyButtonAction("Remove All");
+		Action QuitAction = 
+				new MyButtonAction("Quit");
 
+		
+		
 		//add buttons for these actions to the panel 
-		add(new JButton(yellowAction));
-		add(new JButton(blueAction));
-		add(new JButton(redAction));
-		//javax.swing.InputMap and javax.swing.ActionMap
-		InputMap imap = getInputMap(JComponent.WHEN_FOCUSED);
-		imap.put(KeyStroke.getKeyStroke("ctrl Y"), "panel.yellow");
-		imap.put(KeyStroke.getKeyStroke("ctrl B"), "panel.blue");
-		imap.put(KeyStroke.getKeyStroke("ctrl R"), "panel.red");
-		//void put(KeyStroke keyStroke, Object actionMapKey)
-		//Adds a binding for keyStroke to actionMapKey.
-		//ActionMap provides mappings from Objects (called keys or Action names) to Actions
-		ActionMap amap = getActionMap();
-		amap.put("panel.yellow", yellowAction);
-		amap.put("panel.blue", blueAction);
-		amap.put("panel.red", redAction);
-		//put(Object key, Action action): Adds a binding for key to action.
+		JButton AddButton = new JButton(AddAction);
+		AddButton.addActionListener(this);
+		add(AddButton);
+		JButton RemoveFirstButton = new JButton(RemoveFirstAction);
+		RemoveFirstButton.addActionListener(this);
+		add(RemoveFirstButton);
+		JButton RemoveLastButton = new JButton(RemoveLastAction);
+		RemoveLastButton.addActionListener(this);
+		add(RemoveLastButton);
+		JButton RemoveAllButton = new JButton(RemoveAllAction);
+		RemoveAllButton.addActionListener(this);
+		add(RemoveAllButton);
+		JButton QuitButton = new JButton(QuitAction);
+		QuitButton.addActionListener((event) -> System.exit(0));
+		add(QuitButton);
+	}
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		System.out.println(event) ;
+		String cmd = event.getActionCommand() ;
+		//String cmd = ((JButton) event.getSource()).getText() ;
+		JOptionPane.showMessageDialog(null, cmd) ;
 	}
 }
