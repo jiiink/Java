@@ -13,41 +13,44 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 class BounceFrame extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public BounceFrame() {
 		setTitle("BounceThread");
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		
 		
-		JMenu speedMenu = new JMenu("Speed");
-		JMenuItem fasterItem = speedMenu.add(new SpeedAction("Faster"));
-		JMenuItem slowerItem = speedMenu.add(new SpeedAction("Slower"));
+		final JMenu speedMenu = new JMenu("Speed");
+		final JMenuItem fasterItem = speedMenu.add(new SpeedAction("Faster"));
+		final JMenuItem slowerItem = speedMenu.add(new SpeedAction("Slower"));
 		
-		JMenuBar menuBar = new JMenuBar();
+		final JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		menuBar.add(speedMenu);
 
 		
 		
 		ballPanel = new BallPanel(); add(ballPanel, BorderLayout.CENTER);
-		JPanel buttonPanel = new JPanel();
+		final JPanel buttonPanel = new JPanel();
 
-		addButton(buttonPanel, "Add 1", (ActionEvent event) -> addBall());
-		addButton(buttonPanel, "Add 2", (ActionEvent event) -> {
+		addButton(buttonPanel, "Add 1", (final ActionEvent event) -> addBall());
+		addButton(buttonPanel, "Add 2", (final ActionEvent event) -> {
 			addBall();
 			try {
 				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+			} catch (final InterruptedException e) {
 				e.printStackTrace();
 			}
 			addBall();
 		});
 
-		addButton(buttonPanel, "Close", (ActionEvent event) -> System.exit(0));
+		addButton(buttonPanel, "Close", (final ActionEvent event) -> System.exit(0));
 		add(buttonPanel, BorderLayout.SOUTH);
 	}
-	private void addButton(Container container, String title, ActionListener listener) {
-		JButton button = new JButton(title);
+	private void addButton(final Container container, final String title, final ActionListener listener) {
+		final JButton button = new JButton(title);
 		container.add(button);
 		button.addActionListener(listener);
 	}	
@@ -55,13 +58,13 @@ class BounceFrame extends JFrame {
 		Adds a bouncing ball to the canvas and starts a thread to make it bounce
 		*/
 	public void addBall() {
-		Ball b = new Ball(ballSpeed);
+		final Ball b = new Ball(ballSpeed);
 		ballPanel.add(b);
-		Runnable r = new BallRunnable(b, ballPanel);
-		Thread t = new Thread(r);
+		final Runnable r = new BallRunnable(b, ballPanel);
+		final Thread t = new Thread(r);
 		t.start();
 	}
-	private BallPanel ballPanel;
+	private final BallPanel ballPanel;
 	public static final int DEFAULT_WIDTH = 450;
 	public static final int DEFAULT_HEIGHT = 350; 
 	
@@ -69,5 +72,6 @@ class BounceFrame extends JFrame {
 	public static void setBallSpeed(double ratio) {
 		ballSpeed *= ratio;
 	}
+	
 }
 

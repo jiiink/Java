@@ -7,14 +7,14 @@ import java.awt.geom.Rectangle2D;
 A ball that moves and bounces off the edges of a rectangle
 */
 class Ball {
-	public Ball(double speed) {
+	public Ball(final double speed) {
 		this.dx = speed;
 		this.dy = speed;
 	}
 	/**
 	Moves the ball to the next position, reversing direction if it hits one of the edges
 	*/
-	public void move(Rectangle2D bounds) { // java.awt.geom.Rectangle2D
+	public void move(Rectangle2D bounds) {
 		x += dx; y += dy;
 		if (x < bounds.getMinX()) { x = bounds.getMinX(); dx = -dx; }
 		if (x + XSIZE >= bounds.getMaxX()) { x = bounds.getMaxX() - XSIZE; dx= -dx; }
