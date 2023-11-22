@@ -65,7 +65,7 @@ class BounceFrame extends JFrame {
 	public static final int DEFAULT_WIDTH = 450;
 	public static final int DEFAULT_HEIGHT = 350; 
 	
-	public static double ballSpeed = 1;
+	private static double ballSpeed = 1;
 	public static void setBallSpeed(double ratio) {
 		ballSpeed *= ratio;
 	}

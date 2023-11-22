@@ -12,10 +12,8 @@ class BallRunnable implements Runnable {
 	public void run() {
 		try {
 			for (int i = 1; i <= STEPS; i++) {
-				for (int j = 0; j < ball.speed; j++) {
-					ball.move(ballPanel.getBounds()); // update the location of the ball
-					ballPanel.paint(ballPanel.getGraphics());					
-				}
+				ball.move(ballPanel.getBounds()); // update the location of the ball
+				ballPanel.paint(ballPanel.getGraphics());					
 				Thread.sleep(DELAY);
 			}
 		} catch (InterruptedException e) { }
