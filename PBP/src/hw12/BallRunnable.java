@@ -12,7 +12,7 @@ class BallRunnable implements Runnable {
 	public void run() {
 		try {
 			for (int i = 1; i <= STEPS; i++) {
-				for (int j = 0; j < speed; j++) {
+				for (int j = 0; j < ball.speed; j++) {
 					ball.move(ballPanel.getBounds()); // update the location of the ball
 					ballPanel.paint(ballPanel.getGraphics());					
 				}
@@ -24,6 +24,6 @@ class BallRunnable implements Runnable {
 	private JPanel ballPanel;
 	public static final int STEPS = 10000;
 	public static final int DELAY = 3;
-	public static int speed = 1;
+	// public static int speed = 1;
 	
 }

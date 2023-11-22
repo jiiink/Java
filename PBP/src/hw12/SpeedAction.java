@@ -12,9 +12,9 @@ class SpeedAction extends AbstractAction {
 //		JOptionPane.showMessageDialog(null, getValue(Action.NAME) + " selected.");
 		if (getValue(Action.NAME).equals("Faster")) {
 			//Ball.setSpeed(2.0);	
-			BallRunnable.speed *= 2;
+			BounceFrame.setBallSpeed(2.0);
 		} else {
-			BallRunnable.speed *= 0.5;
+			BounceFrame.setBallSpeed(0.5);
 		}
 	}
 }

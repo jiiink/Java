@@ -7,6 +7,9 @@ import java.awt.geom.Rectangle2D;
 A ball that moves and bounces off the edges of a rectangle
 */
 class Ball {
+	public Ball(double speed) {
+		this.speed = speed;
+	}
 	/**
 	Moves the ball to the next position, reversing direction if it hits one of the edges
 	*/
@@ -27,10 +30,13 @@ class Ball {
 	private double y = 0;
 	private double dx = 1;
 	private double dy = 1;
+
+	public double speed = 1;
 	
-	public void setSpeed(double ratio) {
-		this.dx *= ratio;
-		this.dy *= ratio;
-	}
+	// public void setSpeed(double ratio) {
+	// 	// this.dx *= ratio;
+	// 	// this.dy *= ratio;
+	// 	this.speed *= ratio;
+	// }
 }
 

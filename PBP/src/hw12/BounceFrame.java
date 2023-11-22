@@ -55,7 +55,7 @@ class BounceFrame extends JFrame {
 		Adds a bouncing ball to the canvas and starts a thread to make it bounce
 		*/
 	public void addBall() {
-		Ball b = new Ball();
+		Ball b = new Ball(ballSpeed);
 		ballPanel.add(b);
 		Runnable r = new BallRunnable(b, ballPanel);
 		Thread t = new Thread(r);
@@ -64,6 +64,10 @@ class BounceFrame extends JFrame {
 	private BallPanel ballPanel;
 	public static final int DEFAULT_WIDTH = 450;
 	public static final int DEFAULT_HEIGHT = 350; 
-		
+	
+	public static double ballSpeed = 1;
+	public static void setBallSpeed(double ratio) {
+		ballSpeed *= ratio;
+	}
 }
 
