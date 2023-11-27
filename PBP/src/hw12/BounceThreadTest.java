@@ -1,9 +1,9 @@
 package hw12;
 
 //import java.awt.*;
-import java.awt.event.*;
-import java.awt.geom.*;
-import java.util.*;
+// import java.awt.event.*;
+// import java.awt.geom.*;
+// import java.util.*;
 import javax.swing.*;
 public class BounceThreadTest {
 	public static void main(String[] args) {
