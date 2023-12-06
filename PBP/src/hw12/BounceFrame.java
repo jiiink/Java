@@ -21,7 +21,7 @@ class BounceFrame extends JFrame {
 		setTitle("BounceThread");
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		
-		
+		// about menu
 		final JMenu speedMenu = new JMenu("Speed");
 		final JMenuItem fasterItem = speedMenu.add(new SpeedAction("Faster"));
 		final JMenuItem slowerItem = speedMenu.add(new SpeedAction("Slower"));
@@ -29,7 +29,7 @@ class BounceFrame extends JFrame {
 		final JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		menuBar.add(speedMenu);
-
+		// end menu
 		
 		
 		ballPanel = new BallPanel(); add(ballPanel, BorderLayout.CENTER);
