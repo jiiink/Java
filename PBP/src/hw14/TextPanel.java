@@ -3,6 +3,8 @@ package hw14;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -22,10 +24,13 @@ class TextPanel extends JPanel {
     // Method to set the text in the JTextArea
     public void appendText(final String text) {
         texts.add(text);
-        String msg = "";
-        for (final String t : texts) {
-            msg += t + '\n';
-        }
+        // String msg = "";
+        // for (final String t : texts) {
+        //     msg += t + '\n';
+        // }
+        String msg = texts.stream()
+            .collect(Collectors.joining("\n"));
+        // texts.stream()
         textArea.setText(msg);
     }
     // Method to clear the textArea
