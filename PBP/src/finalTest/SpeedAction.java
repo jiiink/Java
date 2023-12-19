@@ -1,4 +1,4 @@
-package hw12;
+package finalTest;
 
 import java.awt.event.ActionEvent;
 
@@ -17,9 +17,9 @@ class SpeedAction extends AbstractAction {
 	
 	public void actionPerformed(final ActionEvent event) {
 		if (getValue(Action.NAME).equals("Faster")) {
-			BounceFrame.setBallSpeed(2.0);
+			ServerFrame.setBallSpeed(2.0);
 		} else {
-			BounceFrame.setBallSpeed(0.5);
+			ServerFrame.setBallSpeed(0.5);
 		}
 	}
 }
